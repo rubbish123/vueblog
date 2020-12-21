@@ -8,3 +8,8 @@ mybatis-plus:
   mapper-locations: classpath*:/com/meandi/mapper/xml/**Mapper.xml
 server:
   port: 8081
+Meandi:
+  jwt:
+    secret: stay_together924
+    expire: 604800
+    header: Authorization
