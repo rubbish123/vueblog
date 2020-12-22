@@ -11,6 +11,9 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotEmpty;
 
 /**
  * <p>
@@ -24,6 +27,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel(value="Blog对象", description="")
+@Validated
 public class Blog implements Serializable {
 
     private static final long serialVersionUID=1L;
@@ -33,10 +37,13 @@ public class Blog implements Serializable {
 
     private Long userId;
 
+    @NotEmpty(message = "标题不能为空")
     private String title;
 
+    @NotEmpty(message = "摘要不能为空")
     private String description;
 
+    @NotEmpty(message = "内容不能为空")
     private String content;
 
     @TableField(fill = FieldFill.INSERT)
