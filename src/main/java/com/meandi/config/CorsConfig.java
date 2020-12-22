@@ -10,7 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOriginPatterns("*") //springboot2.4这样写，不然报错
                 .allowedMethods("GET","HEAD","POST","PUT","DELETE","OPTIONs")
                 .allowCredentials(true)
                 .maxAge(3600)
